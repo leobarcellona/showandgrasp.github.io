@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="TITOLO">
+  <meta name="keywords" content="Keywords">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Show-and-Grasp: few-shot semantic segmentation for robot grasping through zero-shot foundation models
+</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Show-and-Grasp: few-shot semantic segmentation for robot grasping through zero-shot foundation models</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://it.linkedin.com/in/leonardo-barcellona-ab0506196">Leonardo Barcellona</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://it.linkedin.com/in/alberto-bacchin-5306a6220">Alberto Bacchin</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://it.linkedin.com/in/matteo-terreran-2b300b206">Matteo Terreran</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.dei.unipd.it/~emg/">Emanuele Menegatti</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://www.dei.unipd.it/~ghidoni/">Stefano Ghidoni</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Padua,</span>
+            <span class="author-block"><sup>2</sup>Polytechnic University of Turin</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                 <img id="pipeline" src="static/images/pipeline.png" height="50%" width="80%">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="hero is-light is-small">
+    <div class="hero-body">
+        <div class="container ">
+            <div id="results-carousel2" class="columns">
+                <div class="item item-01">
+                    <video poster="" id="01" autoplay controls muted loop playsinline height="100%">
+                        <source src="./static/videos/exp1.mp4"
+                                type="video/webm">
+                    </video>
+                </div>
+                <div class="item item-02">
+                    <video poster="" id="02" autoplay controls muted loop playsinline height="100%">
+                        <source src="./static/videos/exp2.mp4"
+                                type="video/webm">
+                    </video>
+                </div>
+                <div class="item item-03">
+                    <video poster="" id="03" autoplay controls muted loop playsinline height="100%">
+                        <source src="./static/videos/exp2.mp4"
+                                type="video/webm">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>In this work, we propose an innovative model that combines the emerging capabilities of foundation models for segmentation with a high-performing few-shot classifier, adapting the latter to be effectively applied in the context of semantic segmentation. This segmentation framework is expressly designed to be embedded in a target-aware grasp synthesis model, as demonstrated by the proposed method. Our experiments highlight how the proposed model overcomes limitations in performance, offering advancements both in few-shot semantic segmentation and real-world grasp synthesis with semantic-awareness.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Few-shot semantic segmentation</h2>
+                <p>The core part is the few-shot segmentation module that leverages the capabilities of foundation models with the high accuracy of few-shot classification models. 
+                </p>
+                <img id="fsm" src="static/images/few-shot-model.png" height="100%">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Few-shot semantic segmentation</h2>
+                <p>The module can be included in grasp synthesis, in which it offers knowledge about the semantic given only few examples of the target. 
+                </p>
+                <img id="fsm" src="static/images/grasp-synthesis.png" height="100%">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Few-shot semantic grasping</h2>
+    <p>Thank to the impressive results of the few-shot segmentation module, the grasp-shyntesis can generalize to new objects, not represented in the training set, with only few-examples </p>
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <video id="exp1vid" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/exp1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+
+        <div class="columns is-centered">
+          <div class="column content">
+              <img id="exp1img" src="static/images/exp1.png" height="50%" width="45%">
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Matting. -->
+
+   
+
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Few-shot instance recognition</h2>
+      <p>Thanks to example, it can also choose the most similar instance among different possible targets of te same class </p>
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <video id="exp2vid" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/exp2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+
+        <div class="columns is-centered">
+          <div class="column content">
+              <img id="exp1img" src="static/images/exp2.png" height="50%" width="45%">
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Matting. -->
+
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Generalization to different instances</h2>
+    <p>It generalize to novel classes, even when the visual characteristics are different compared to the examples</p>
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <video id="exp3vid" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/exp3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+
+        <div class="columns is-centered">
+          <div class="column content">
+              <img id="exp1img" src="static/images/exp3.png" height="50%" width="45%">
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Matting. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{,
+  author    = {AUTHORS},
+  title     = {TITLE},
+  journal   = {JOURNAL},
+  year      = {YEAR},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Source code of the website from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. If you use, keep this link in the footer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
